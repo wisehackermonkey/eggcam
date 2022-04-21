@@ -1,0 +1,10 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:latest
+# USED BY CORAL TPU
+RUN install_packages libedgetpu1-legacy-std python3-edgetpu 
+RUN install_packages git 
+RUN install_packages gstreamer1.0-plugins-bad gstreamer1.0-plugins-good python3-gst-1.0 python3-gi  python3-rpi.gpio
+RUN pip3 install svgwrite python-periphery 
+WORKDIR /app/
+COPY ./ /app/
+
+CMD ["bash", "/app/start.sh"]

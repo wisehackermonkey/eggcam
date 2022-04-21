@@ -1,0 +1,5 @@
+version: '2.1'
+services:
+    teachablemachine:
+        build: ./teachablemachine
+        restart: always 
